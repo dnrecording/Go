@@ -1,42 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "../react-auth0-spa";
 
 const Home = () => {
   const [username, setUsername] = useState("");
   const [guessnum, setGuessnum] = useState("");
   const [guessStatus, setGuessStatus] = useState("");
+  const { getTokenSilently, loading, user, logout, isAuthenticated } = useAuth0();
 
-  let navigate = useNavigate();
+  if (loading || !user) {
+    return <div>Loading...</div>;
+  }
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetch("http://localhost:8000/api/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+//   let navigate = useNavigate();
 
-      const content = await response.json();
-      setUsername(content.username);
+//   useEffect(() => {
+//     (async () => {
+//       const response = await fetch("http://localhost:8000/api/user", {
+//         headers: { "Content-Type": "application/json" },
+//         credentials: "include",
+//       });
 
-      if (response.status === 401){
-        navigate("/")
-      }
-    })();
-  });
+//       const content = await response.json();
+//       setUsername(content.username);
 
-  const logout = async () => {
-    const response = await fetch("http://localhost:8000/api/logout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+//       if (response.status === 401){
+//         navigate("/")
+//       }
+//     })();
+//   });
 
-    const content = await response.json();
-    console.log(content);
-    if (response.status === 200) {
-      navigate("/");
-    }
-  };
+//   const logout = async () => {
+//     const response = await fetch("http://localhost:8000/api/logout", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       credentials: "include",
+//     });
+
+//     const content = await response.json();
+//     console.log(content);
+//     if (response.status === 200) {
+//       navigate("/");
+//     }
+//   };
 
   const guess = async (e) => {
     e.preventDefault();
@@ -113,6 +119,7 @@ const Home = () => {
         </p>
       </form>
       <button class="btn btn-outline-danger" type="button" onClick={logout}>
+      {isAuthenticated && <span className="btn btn-primary float-right" onClick={() => logout()}>Log out</span>}
         Logout
       </button>
     </div>

@@ -59,6 +59,8 @@
 This web application is Guessing number game with Authentication.
 To run this web application need to:
 - Clone this project.
+- Open MySQL Server with 
+username : `root` , password : `rootroot`
 - Run `go run main.go` in terminal at **/auth-sql** folder.
 
 - Run `npm start` in terminal at **/auth-react** folder.

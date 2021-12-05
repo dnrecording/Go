@@ -44,11 +44,11 @@
 
 - Use of middleware for authentication 🔥 
 > **(Need more time to understand)**
-> 
+
 - If we wanted to hide the guess data by not using GET, can we use other method to do so ✔️
-> 
+
 > **(PATCH guess data to update guess data in database and compare guess data with the secret number at backend if correct, return HTTP 201 and regenerate the secret number.)**
-> 
+
 > I hope this method is right. 😂
 
 ## Prerequisite

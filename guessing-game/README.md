@@ -36,23 +36,40 @@
 > **(DELETE not included)**
 
 **Bonus (for challenge)**
-- FE
+**Frontend**
 
-> Use React.js context for authentication ✔️
+- Use React.js context for authentication ✔️
 
-- BE
+**Backend**
 
-> Use of middleware for authentication 🔥 
-> 
+- Use of middleware for authentication 🔥 
 > **(Need more time to understand)**
 > 
-> If we wanted to hide the guess data by not using GET, can we use other method to do so ✔️
+- If we wanted to hide the guess data by not using GET, can we use other method to do so ✔️
 > 
 > **(PATCH guess data to update guess data in database and compare guess data with the secret number at backend if correct, return HTTP 201 and regenerate the secret number.)**
 > 
 > I hope this method is right. 😂
 
-## Modules
+## Prerequisite
+- Go 1.17
+- MySQL Server 8.0
+
+## Usage
+This web application is Guessing number game with Authentication.
+To run this web application need to:
+- Clone this project.
+- Run `go run main.go` in terminal at **/auth-sql** folder.
+
+- Run `npm start` in terminal at **/auth-react** folder.
+
+- Open web at [http://localhost:3000](http://localhost:3000).
+
+- Sign up with username and password.
+
+- Login and Have fun with simple Guessing Game. 😊
+
+## URL
 #### Frontend
 - React.js
 > serve at :  [http://localhost:3000](http://localhost:3000)
@@ -60,7 +77,7 @@
 > - [http://localhost:3000/signup](http://localhost:3000/signup)
 > - [http://localhost:3000/guessgame](http://localhost:3000/guessgame)
 #### Backend
-- GO
+- Go
 > serve at :  [http://localhost:8000](http://localhost:8000)
 > - POST - [http://localhost:8000/api/login](http://localhost:8000/api/login)
 > - POST - [http://localhost:8000/api/signup](http://localhost:8000/api/signup)
@@ -68,3 +85,4 @@
 > - PATCH - [http://localhost:8000/api/guess](http://localhost:8000/api/guess)
 > - GET - [http://localhost:8000/api/user](http://localhost:8000/api/user)
 - MySQL Local Database Server
+> serve at :  [http://localhost:3306](http://localhost:3306)
